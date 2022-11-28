@@ -1,0 +1,24 @@
+<app-header></app-header>
+<div class="container-xl">
+    <div class="card-body text-danger">
+        <h3 class="titulo">Crear Pedido</h3><br>
+    </div>
+
+    <form [formGroup]="nuevoForm"  class="need-validated .bg-light.bg-gradient">
+        <div class="form-group">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>seleccione un cliente</h3>
+                    <select  name="status" placeholder="select" >
+                        <option *ngFor="let cliente of clientes" 
+                             [value]="cliente.idCliente">
+                         {{cliente.fullName}}
+                        </option>
+                    </select>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<app-footer></app-footer>

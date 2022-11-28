@@ -1,0 +1,42 @@
+<app-header></app-header>
+<div class="container-xl">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-body" > 
+                <h3 class="titulo" >Lista De ordenes</h3> <br> 
+                <button type="button" (click)="test()" class="btn btn-primary" >Crear</button>  
+           </div>
+    <br>
+    </div>
+    
+    <fieldset>
+        <div class="col-md-10">
+            <div style = "overflow:auto; ">
+                <table class="table table-hover"  cellspacing="0" width="20" >
+                    <thead class="table-active">
+                    <tr class="tabla">
+                        <th scope="col">#</th>
+                        <th scope="col">Cliente</th>
+                        <th scope="col">total Items</th>
+                        <th scope="col">Valor Total</th>
+                        <th scope="col">Fecha Creación</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                   <tr *ngFor="let orden of ordenes " (click)="editarOrdenes(orden.idOrden)">
+                        <th scope="row">{{orden.idOrden}}</th> 
+                        <td>{{orden.nombre}}</td> 
+                        <td>{{orden.totaItems}}</td>  
+                        <td>{{orden.valorTotal}}</td>  
+                        <td>{{orden.fecha}}</td>        
+                    </tr>  
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div> 
+    </fieldset>
+</div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,172 @@
+<app-header></app-header>
+<div class="container-xl">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card-body" > 
+            <h3 class="titulo" >Lista De Clientes</h3> <br> 
+            <button type="button" (click)="test()" class="btn btn-primary" *ngIf="create">Crear</button>  
+       </div>
+       <fieldset>
+           
+        <div class="col-md-10">
+            <div style = "overflow:auto; ">
+                <table class="table table-hover"  cellspacing="0" width="20" >
+                    <thead class="table-active">
+                    <tr class="tabla">
+                        <th scope="col">#</th>
+                        <th scope="col">Cedula</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Telefono</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let cliente of clientes " (click)="editarclientes(cliente.idCliente)">
+                        <th scope="row">{{cliente.idCliente}}</th> 
+                        <td>{{cliente.cedula}}</td> 
+                        <td>{{cliente.nombre}}</td>  
+                        <td>{{cliente.apellido}}</td>  
+                        <td>{{cliente.telefono}}</td>        
+                    </tr>    
+                    </tbody>
+                </table>
+
+            </div>
+
+        </div> 
+       </fieldset>
+      </div>
+      <div class="col-md-6" >
+        <div class="row">
+            <div class="col-md-12" *ngIf="show">
+                <div class="card-body text-danger">
+                    <h3 class="titulo">Crear Cliente</h3><br>
+                </div>
+                <form [formGroup]  = "nuevoForm" (ngSubmit)="PostFormCreate(nuevoForm.value)"  >
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Cedula:</label></h4>
+                                <input type="number" class="form-control" formControlName= "cedula" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                <span class="text-dark"><small>Solo ingrese numeros</small></span>
+                                <div class="valid-feedback">
+                                    ¡Se ve bien!
+                                </div>        
+                                <div class="invalid-feedback" >
+                                    Por favor, Proporcione una dato válido.
+                                </div> 
+                                </div> 
+                             
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Nombre:</label></h4>
+                                <input type="text" class="form-control" formControlName= "nombre" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                <span class="text-dark"><small>Solo ingrese letras</small></span>
+                                <div class="valid-feedback">
+                                    ¡Se ve bien!
+                                </div>        
+                                <div class="invalid-feedback" >
+                                    Por favor, Proporcione una dato válido.
+                                </div> 
+                            </div>   
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Apellido:</label></h4>
+                                <input type="text" class="form-control" formControlName= "apellido" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                <span class="text-dark"><small>Solo ingrese letras</small></span>
+                                <div class="valid-feedback">
+                                    ¡Se ve bien!
+                                </div>        
+                                <div class="invalid-feedback" >
+                                    Por favor, Proporcione una dato válido.
+                                </div>
+                            </div> 
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Telefono:</label></h4>
+                                    <input type="text" class="form-control" formControlName= "telefono" placeholder="Digite un dato" maxlength="50" minlength="2"  required>                        
+                                    <span class="text-dark"><small>Solo ingrese numeros</small></span>
+                                    <div class="valid-feedback">
+                                        ¡Se ve bien!
+                                    </div>        
+                                    <div class="invalid-feedback" >
+                                        Por favor, Proporcione una dato válido.
+                                    </div> 
+                            </div> 
+                              
+                        </div>           
+                    </div>
+                    <div class="btn-toolbar">
+                        <button class="btn btn-success btn-sm " [disabled] = "nuevoForm.invalid" type="submit" style="margin-right:10px">Guardar</button>
+                        <button type="button" (click)="Cancelar()" class="btn btn-danger btn-sm">Cancelar</button>
+                    </div>
+                  </form>  
+            </div>
+            <div class="col-md-12" *ngIf="cli">
+                <div class="card-body text-danger">
+                    <h3 class="titulo">Editar Cliente</h3><br>
+                </div> 
+                <form [formGroup]  = "Form" (ngSubmit)="PutFormEdit(Form.value)" class="was-validated">
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Cedula:</label></h4>
+                                <input type="number" class="form-control" formControlName= "cedula" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                <span class="text-dark"><small>Solo ingrese numeros</small></span>
+                                <div class="valid-feedback">
+                                    ¡Se ve bien!
+                                </div>        
+                                <div class="invalid-feedback" >
+                                    Por favor, Proporcione una dato válido.
+                                </div> 
+                                </div> 
+                             
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Nombre:</label></h4>
+                                <input type="text" class="form-control" formControlName= "nombre" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                <span class="text-dark"><small>Solo ingrese letras</small></span>
+                                <div class="valid-feedback">
+                                    ¡Se ve bien!
+                                </div>        
+                                <div class="invalid-feedback" >
+                                    Por favor, Proporcione una dato válido.
+                                </div> 
+                            </div>   
+                        </div> 
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Apellido:</label></h4>
+                                <input type="text" class="form-control" formControlName= "apellido" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                <span class="text-dark"><small>Solo ingrese letras</small></span>
+                                <div class="valid-feedback">
+                                    ¡Se ve bien!
+                                </div>        
+                                <div class="invalid-feedback" >
+                                    Por favor, Proporcione una dato válido.
+                                </div>
+                            </div> 
+                            <div class="col-md-6">
+                                <h4 class="Subtitulo"><label for="exampleFormContolInput1" autofocus >Telefono:</label></h4>
+                                    <input type="text" class="form-control" formControlName= "telefono" placeholder="Digite un dato" maxlength="50" minlength="2" ngModel  required>                        
+                                    <span class="text-dark"><small>Solo ingrese numeros</small></span>
+                                    <div class="valid-feedback">
+                                        ¡Se ve bien!
+                                    </div>        
+                                    <div class="invalid-feedback" >
+                                        Por favor, Proporcione una dato válido.
+                                    </div> 
+                            </div> 
+                              
+                        </div>           
+                    </div>            
+                    <div class="btn-toolbar">
+                        <button class="btn btn-success btn-sm Guardar" type="submit" [disabled] = "Form.invalid">Guardar</button>
+                        <button type="button" (click)="CancelarOut()" class="btn btn-danger btn-sm">Cancelar</button>
+                        <button type="button" class="btn btn-dark btn-sm" (click)="eliminar()" [disabled] = "Form.invalid" style="margin-left:10px">Eliminar</button> 
+                    </div>                   
+                  </form>
+            </div>
+        </div>             
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,31 @@
+.nombreAPP{
+    font-family: Latin Modern Roman, serif;
+    font-style: oblique;
+    font-size:300%;
+    font-weight: 700; 
+    color:white;
+  
+  }
+
+  .Menu{
+    font-family: Homer Simpson UI, serif;
+    font-style: oblique;
+    font-size:130%;
+    font-weight: 200; 
+    color: white;
+  }
+  
+  .user{
+    color: #6c0909;
+    margin-right:30px;
+    line-height: 100%;
+    margin: 0;
+  }
+
+  .contenido{
+    font-size: 110%;
+    font-family: "Segoe IU", serif;
+    color:rgb(8, 4, 48);
+    font-weight: 400;
+    line-height: 100%;
+  }

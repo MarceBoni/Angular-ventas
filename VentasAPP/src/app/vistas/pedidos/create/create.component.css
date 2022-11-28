@@ -1,0 +1,38 @@
+.required::before {
+    content:"*";
+    color: red;
+  }
+  
+  .titulo{
+    font-family: Homer Simpson UI, serif;
+    font-style: italic;
+    font-size:xx-large;
+    font-weight: 700; color:#BF0B32;
+  
+  }
+  
+  .Subtitulo{
+    font-size: 120%;
+    font-family: "Constantia", serif;
+    font-style: italic; 
+    color:rgb(21, 65, 112);
+    line-height: 100%;
+    font-weight: normal;
+  }
+
+  .tabla{
+    font-style: normal; 
+    color:rgb(16, 87, 163)
+  }
+
+  .contenido{
+  
+    font-size: 110%;
+    font-family: "Segoe IU", serif;
+    color:rgb(21, 65, 112);
+    font-weight: 400;
+    line-height: 100%;
+  }
+  .Guardar{
+    margin-right:10px;
+  }
